@@ -1,4 +1,7 @@
-SystemVerilog Dual-Port RAM Implementation
+#Dual-Port RAM Implementation
+---
+##DUT Dual Port Ram
+---
 module dual_port_ram 
     (   
         input  logic       clk,         // clock
@@ -25,7 +28,9 @@ assign data_out_1 = port_en_1 ? ram[addr_in_1] : 'z;
 
 endmodule
 
-//INTERFACE//
+
+##Interface
+
 
 interface ram_if();
   
@@ -41,9 +46,9 @@ interface ram_if();
   
 endinterface
 
-
-////////////////VERIFICATION//
-
+---
+##Verification 
+---
 `include "uvm_macros.svh"
 
 import uvm_pkg::*;
