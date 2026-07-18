@@ -1,5 +1,7 @@
-### DUT
+### Basic ALU SV Verification
 
+### DUT
+```system verilog
 module alu (
   input  logic [3:0] a,
   input  logic [3:0] b,
@@ -20,10 +22,12 @@ always_comb begin
 end
 
 endmodule
-
+```
 ---
 ### Interface
 ---
+```system verilog
+
 interface alu_if;
   logic clk;
   logic [3:0] a;
@@ -31,10 +35,11 @@ interface alu_if;
   logic [1:0] sel;
   logic [3:0] y;
 endinterface
-
+```
 ---
 ### Verification
 ---
+```system verilog 
 class transaction;
 
   rand logic [3:0] a;
@@ -44,8 +49,9 @@ class transaction;
 
 endclass
 
+```
 ---
-
+```system verilog
 class generator;
 
   mailbox gen2drv;
@@ -68,8 +74,9 @@ class generator;
 
 endclass
 
+```
 ---
-
+```system verilog
 class driver;
 
   mailbox gen2drv;
@@ -102,9 +109,9 @@ class driver;
   endtask
 
 endclass
-
+```
 ---
-
+```system verilog
 class monitor;
 
   mailbox mon2scr;
@@ -141,8 +148,9 @@ class monitor;
 
 endclass
 
+```
 ---
-
+```system verilog
 class scoreboard;
 
   mailbox mon2scr;
@@ -195,9 +203,9 @@ class scoreboard;
   endtask
 
 endclass
-
+```
 ---
-
+```system verilog
 class env;
 
   generator gen;
@@ -241,8 +249,9 @@ class env;
 
 endclass
 
+```
 ---
-
+```system verilog
 module tb;
 
   alu_if aif();
@@ -262,5 +271,5 @@ module tb;
   end
 
 endmodule
-
+```
 ---
