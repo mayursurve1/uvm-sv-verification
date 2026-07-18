@@ -1,7 +1,7 @@
 ### Basic ALU SV Verification
 
 ### DUT
-```system verilog
+```systemverilog
 module alu (
   input  logic [3:0] a,
   input  logic [3:0] b,
@@ -26,7 +26,7 @@ endmodule
 ---
 ### Interface
 ---
-```system verilog
+```systemverilog
 
 interface alu_if;
   logic clk;
@@ -39,7 +39,7 @@ endinterface
 ---
 ### Verification
 ---
-```system verilog 
+```systemverilog 
 class transaction;
 
   rand logic [3:0] a;
@@ -51,7 +51,7 @@ endclass
 
 ```
 ---
-```system verilog
+```systemverilog
 class generator;
 
   mailbox gen2drv;
@@ -76,7 +76,7 @@ endclass
 
 ```
 ---
-```system verilog
+```systemverilog
 class driver;
 
   mailbox gen2drv;
@@ -111,7 +111,7 @@ class driver;
 endclass
 ```
 ---
-```system verilog
+```systemverilog
 class monitor;
 
   mailbox mon2scr;
@@ -150,7 +150,7 @@ endclass
 
 ```
 ---
-```system verilog
+```systemverilog
 class scoreboard;
 
   mailbox mon2scr;
@@ -205,7 +205,7 @@ class scoreboard;
 endclass
 ```
 ---
-```system verilog
+```systemverilog
 class env;
 
   generator gen;
@@ -251,7 +251,7 @@ endclass
 
 ```
 ---
-```system verilog
+```systemverilog
 module tb;
 
   alu_if aif();
